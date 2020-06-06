@@ -7,7 +7,7 @@ class Display extends React.Component
 		return (
 			
 			<div id="displayBox">
-			<input type="text" id="displayHeading" value={this.props.value} readonly="readonly" />			
+			<input type="text" id="displayHeading" value={this.props.value} readOnly />			
 			</div>
 		);
 	}

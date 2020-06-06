@@ -28,8 +28,14 @@ class Calculator extends React.Component
 		var currentDisplay = this.state.display;
 		var lastCharacter = currentDisplay.charAt(currentDisplay.length - 1);
 		var operations = ["+","-","*","/","%"];
+		var skip = ["+","-","*","/","%", "0"];
 
 		var expression = this.state.display;
+
+		if (expression.length === 1 && skip.includes(expression))
+		{
+			return;
+		}
 
 		if (operations.includes(lastCharacter))
 		{
@@ -131,7 +137,7 @@ class Calculator extends React.Component
 		return (
 			<div className="row">
 				<div className="col-lg-5">
-					<History operations={this.state.history.reverse().slice(0,15)} remember="15" />
+					<History operations={this.state.history} remember="15" />
 				</div>
 				<div id="calculator" className="col-lg-6">
 					<Display value={this.state.display} />

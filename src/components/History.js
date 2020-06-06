@@ -4,7 +4,8 @@ class History extends React.Component
 {
 	render()
 	{
-		var operations = this.props.operations;		
+		var operations = this.props.operations;
+		operations = operations.reverse().slice(0,15);
 
 		return (			
 
@@ -12,9 +13,9 @@ class History extends React.Component
 				<p>Recent calculations ... </p>
 				<ul>
 				{
-					operations.map(function(operation) 
+					operations.map(function(operation, index) 
 					{
-						return(<li>{operation}</li>);
+						return(<li key={index}>{operation}</li>);
 					})
 				}
 				</ul>
